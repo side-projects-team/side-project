@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
 import { TwoStepVerificationComponent } from './two-step-verification/two-step-verification.component';
+import { NgxOtpInputModule } from 'ngx-otp-input';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TwoStepVerificationComponent } from './two-step-verification/two-step-v
   ],
   imports: [
     CommonModule,
+    NgxOtpInputModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'login', component: LoginComponent },

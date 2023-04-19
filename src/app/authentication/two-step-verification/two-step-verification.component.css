@@ -1,0 +1,29 @@
+ngx-otp-input {
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+.grid-cols-3{
+    margin-top: 2rem;
+}
+
+.grid-cols-3 p{
+    margin-left: 1rem;
+}
+
+.card {
+    height: 30rem;
+    width: 30rem;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: rgba(1,200,247,1);
+}

@@ -12,8 +12,12 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthenticationService) {}
 
   ngOnInit(): void {
-    if (this.authService.isUserAuthenticated()) {
+    if (this.isAuthenticated()) {
       this.authService.sendAuthStateChangeNotification(true);
     }
+  }
+
+  isAuthenticated(){
+    return this.authService.isUserAuthenticated();
   }
 }

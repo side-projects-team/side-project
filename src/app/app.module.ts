@@ -11,8 +11,6 @@ import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ForbiddenComponent } from './shared/pages/forbidden/forbidden.component';
-import { AuthGuard } from './shared/guards/auth.guard';
-import { AdminGuard } from './shared/guards/admin.guard';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -32,24 +30,10 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     HttpClientModule,
     SocialLoginModule,
-    RouterModule.forRoot([
-      {
-        path: 'authentication',
-        loadChildren: () =>
-          import('./authentication/authentication.module').then(
-            (m) => m.AuthenticationModule
-          ),
-      },
-      {
-        path: 'privacy',
-        component: PrivacyComponent,
-        canActivate: [AuthGuard, AdminGuard],
-      },
-      { path: 'forbidden', component: ForbiddenComponent },
-    ]),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
