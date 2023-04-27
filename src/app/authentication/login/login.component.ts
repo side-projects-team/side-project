@@ -22,12 +22,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
 
@@ -95,6 +95,7 @@ export class LoginComponent implements OnInit {
   }
 
   private validateExternalAuth(externalAuth: ExternalAuthDto) {
+    console.log("called method")
     this.authService.externalLogin('externallogin', externalAuth)
       .subscribe({
         next: (res) => {
@@ -103,6 +104,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate([this.returnUrl]);
       },
         error: (err: HttpErrorResponse) => {
+          console.log(err.message)
           this.errorMessage = err.message;
           this.showError = true;
           this.authService.signOutExternal();

@@ -9,6 +9,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
 import { TwoStepVerificationComponent } from './two-step-verification/two-step-verification.component';
 import { NgxOtpInputModule } from 'ngx-otp-input';
+import { SocialLoginModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
   ],
   imports: [
     CommonModule,
+    SocialLoginModule,
     NgxOtpInputModule,
     ReactiveFormsModule,
     RouterModule.forChild([
