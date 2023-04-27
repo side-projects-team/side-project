@@ -11,7 +11,7 @@ import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ForbiddenComponent } from './shared/pages/forbidden/forbidden.component';
-import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -33,7 +33,6 @@ export function tokenGetter() {
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
-    SocialLoginModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

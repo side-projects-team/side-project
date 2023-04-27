@@ -16,6 +16,8 @@ export class RegisterComponent {
   public errorMessage: string = '';
   public showError: boolean = false;
 
+  passwordPattern = /^(?=.*\d)(?=.*\W)(?=.*[a-zA-Z]).{7,}$/
+
   constructor(
     private authService: AuthenticationService,
     private passConfValidator: PasswordConfirmationValidatorService,
@@ -30,6 +32,7 @@ export class RegisterComponent {
       password: new FormControl('', [Validators.required]),
       confirm: new FormControl(''),
     });
+    
     this.registerForm
       .get('confirm')!
       .setValidators([

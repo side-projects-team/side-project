@@ -43,7 +43,7 @@ export class TwoStepVerificationComponent implements OnInit {
   }
 
   handleOtpChange(value: string[]): void{
-    console.log(value);
+    
   }
 
   handleOtpFillEvent(value: string) : void{
