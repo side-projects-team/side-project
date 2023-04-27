@@ -20,18 +20,21 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.forgotPasswordForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
+
   public validateControl = (controlName: string) => {
     return (
       this.forgotPasswordForm.get(controlName)!.invalid &&
       this.forgotPasswordForm.get(controlName)!.touched
     );
   };
+
   public hasError = (controlName: string, errorName: string) => {
     return this.forgotPasswordForm.get(controlName)!.hasError(errorName);
   };
+
   public forgotPassword = (forgotPasswordFormValue: any) => {
     this.showError = this.showSuccess = false;
     const forgotPass = { ...forgotPasswordFormValue };
