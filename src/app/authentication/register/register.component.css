@@ -1,0 +1,35 @@
+h1 {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+a{
+  border: 2px solid purple;
+  border-radius: .3rem;
+}
+
+.form-control{
+  border: 2px solid purple;
+}
+
+.continue{
+  background-color: purple;
+  color: white;
+}
+
+.link {
+  border: none;
+  color: purple;
+}
+
+p {
+  padding: 0;
+  display: inline;
+}
+
+@media(max-width: 420px) {
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+}
