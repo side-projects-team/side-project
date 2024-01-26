@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from './shared/services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +8,9 @@ import { AuthenticationService } from './shared/services/authentication.service'
 export class AppComponent implements OnInit {
   title = 'side-project';
 
-  constructor(private authService: AuthenticationService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    if (this.isAuthenticated()) {
-      this.authService.sendAuthStateChangeNotification(true);
-    }
-  }
-
-  isAuthenticated(){
-    return this.authService.isUserAuthenticated();
+    
   }
 }

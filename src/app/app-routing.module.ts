@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard'},
-      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'dashboard', component: DashboardComponent, }, //canActivate: [AuthGuard] },
       {
         path: 'authentication',
         loadChildren: () =>
