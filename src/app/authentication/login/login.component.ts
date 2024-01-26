@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -85,30 +85,32 @@ export class LoginComponent implements OnInit {
     this.showError = false;
     this.authService.signInWithGoogle();
 
-    this.authService.extAuthChanged.subscribe( user => {
+    console.log('Called Method');
+
+    this.authService.extAuthChanged.subscribe((user) => {
       const externalAuth: ExternalAuthDto = {
         provider: user.provider,
-        idToken: user.idToken
-      }
+        idToken: user.idToken,
+      };
+      console.log('Calling validate Method');
       this.validateExternalAuth(externalAuth);
-    })
-  }
+    });
+  };
 
   private validateExternalAuth(externalAuth: ExternalAuthDto) {
-    console.log("called method")
-    this.authService.externalLogin('externallogin', externalAuth)
-      .subscribe({
-        next: (res) => {
-            localStorage.setItem("token", res.token);
-            this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
-            this.router.navigate([this.returnUrl]);
+    console.log('called method');
+    this.authService.externalLogin('externallogin', externalAuth).subscribe({
+      next: (res) => {
+        localStorage.setItem('token', res.token);
+        this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
+        this.router.navigate([this.returnUrl]);
       },
-        error: (err: HttpErrorResponse) => {
-          console.log(err.message)
-          this.errorMessage = err.message;
-          this.showError = true;
-          this.authService.signOutExternal();
-        }
-      });
+      error: (err: HttpErrorResponse) => {
+        console.log("Error from validation: " + err.message);
+        this.errorMessage = err.message;
+        this.showError = true;
+        this.authService.signOutExternal();
+      },
+    });
   }
 }

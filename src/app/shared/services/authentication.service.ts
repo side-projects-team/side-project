@@ -39,7 +39,6 @@ export class AuthenticationService {
     private externalAuthService: SocialAuthService
   ) {
     this.externalAuthService.authState.subscribe((user) => {
-      console.log(user);
       this.extAuthChangeSub.next(user);
       this.isExternalAuth = true;
     });
