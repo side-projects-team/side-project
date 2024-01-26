@@ -1,0 +1,70 @@
+.container {
+    padding: 4rem;
+}
+
+.nav {
+    max-width: 15%;
+    border-right: 1px gray solid;
+}
+
+ul {
+    gap: 16px;
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+ul > li {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.analytics {
+    max-width: 70%;
+}
+
+.countries {
+    max-width: 15%;
+    border-left: 1px gray solid;
+}
+
+.statistic-card {
+    width: 30%;
+    height: 10rem;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.graph {
+    background-color: white;
+    height: 15rem;
+    border-radius: 1rem;
+}
+
+table {
+    border-radius: 1rem;
+    border-top: 1px gray solid;
+    border-bottom: 1px gray solid;
+
+}
+
+tbody > tr {
+    border-bottom: 1px gray solid;
+    height: 3.5rem;
+}
+
+thead {
+    border-bottom: 1px gray solid;
+    height: 2.5rem;
+}
+
+.percentage {
+    font-weight: 600;
+}
